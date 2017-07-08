@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-public class TwoFragment extends Fragment {
+public class TwoFragment extends Fragment implements View.OnClickListener {
 
     DatabaseReference mRef;
     EditText emp,sal1,sal2,key,goals;
@@ -45,31 +46,51 @@ public class TwoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        View myView = inflater.inflate(R.layout.fragment_two,container,false);
 
-        emp = (EditText) container.findViewById(R.id.current_employer);
-        sal1 = (EditText) container.findViewById(R.id.salary_when_she_joined);
-        sal2 = (EditText) container.findViewById(R.id.current_salary);
-        key = (EditText)container.findViewById(R.id.job_responisbilities);
-        goals = (EditText) container.findViewById(R.id.future_goals);
+
+        emp = (EditText) myView.findViewById(R.id.current_employer);
+        sal1 = (EditText) myView.findViewById(R.id.salary_when_she_joined);
+        sal2 = (EditText) myView.findViewById(R.id.current_salary);
+        key = (EditText)myView.findViewById(R.id.job_responisbilities);
+        goals = (EditText) myView.findViewById(R.id.future_goals);
 
 
 
         mRef = FirebaseDatabase.getInstance().getReference().child("women");
 
-        submit = (Button) container.findViewById(R.id.submit);
+        submit = (Button) myView.findViewById(R.id.submit11);
+        submit.setOnClickListener(this);
 
 
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-
-            }
-        });
-
-
-        return inflater.inflate(R.layout.fragment_two, container, false);
+        return myView;
     }
+
+    @Override
+    public void onClick(View v) {
+        final String emp1 = emp.getText().toString();
+        final String sal_j = sal1.getText().toString();
+        final String sal_c = sal2.getText().toString();
+        final String key1 = key.getText().toString();
+        final String goals1 = goals.getText().toString();
+
+        if (!TextUtils.isEmpty(emp1) && !TextUtils.isEmpty(sal_j) && !TextUtils.isEmpty(sal_c) && !TextUtils.isEmpty(key1) && !TextUtils.isEmpty(goals1)){
+
+            final DatabaseReference newPost = mRef.push();
+
+            newPost.child("employer_name").setValue(emp1);
+            newPost.child("joining_salary").setValue(sal_j);
+            newPost.child("current_salary").setValue(sal_c);
+            newPost.child("key").setValue(key1);
+            newPost.child("goals").setValue(goals1);
+
+        }
+
+
+        // implements your things
+    }
+
 
     public void onRadioButtonClicked(View view){
         // Is the button now checked?
