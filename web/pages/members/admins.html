@@ -11,7 +11,7 @@
   <ul id="admins-list" class="list-group">
     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" ng-repeat="admin in admins">
       <br>
-      <h4>{{ admin.name }}</h4>
+      <h4>{{ $index + 1 }}. {{ admin.name }}</h4>
       <p>
         <span><strong>Contact Number:</strong> {{ admin.contactNumber }}</span><br>
         <span><strong>Email Address:</strong> {{ admin.emailAddress }}</span><br>
