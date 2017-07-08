@@ -11,15 +11,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.account.WorkAccount;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
-    FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;
     EditText mail,pwd;
     Button login;
     ProgressDialog mProgress;
@@ -55,28 +56,29 @@ public class MainActivity extends AppCompatActivity {
         String email = mail.getText().toString();
         String password = pwd.getText().toString();
 
-        if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
-
-            mProgress.setMessage("Signing In....");
-            mProgress.show();
-
-
-            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)){
+            mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
+                    if(task.isSuccessful()){
                         mProgress.dismiss();
-                        Intent intent = new Intent(MainActivity.this, Women_profie.class);
+                        Intent intent = new Intent(LoginActivity.this, Women_profie.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
 
-                    } else {
-                        Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
                     }
+                    else{
+                        mProgress.dismiss();
+                        Toast.makeText(LoginActivity.this,"Error",Toast.LENGTH_LONG).show();
+                    }
+
                 }
             });
+
         }
     }
 
+    private void checkUserExist() {
+    }
 
 }

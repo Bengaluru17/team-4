@@ -19,8 +19,20 @@ kshamataApp.config(['$routeProvider', function($routeProvider) {
   		templateUrl: 'pages/home.html',
   		controller: 'HomeController'
   	}).
-    when('/signup', {
-      templateUrl: 'pages/signup.html'
+    when('/members', {
+      templateUrl: 'pages/members.html'
+    }).
+    when('/members/women', {
+      templateUrl: 'pages/members/women.html'
+    }).
+    when('/members/admins', {
+      templateUrl: 'pages/members/admins.html'
+    }).
+    when('/members/volunteers', {
+      templateUrl: 'pages/members/volunteers.html'
+    }).
+    when('/members/add/admin', {
+      templateUrl: 'pages/members/add/admin.html'
     }).
     otherwise({
   		redirectTo: '/home'
