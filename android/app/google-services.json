@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "813353117552",
+    "firebase_url": "https://kshamata-68f54.firebaseio.com",
+    "project_id": "kshamata-68f54",
+    "storage_bucket": "kshamata-68f54.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813353117552:android:9ba9410115f3c185",
+        "android_client_info": {
+          "package_name": "com.cfg.codeforgood.kshamata"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "813353117552-qm47eme983fj9i6oeu551m76u9k8gh6r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cfg.codeforgood.kshamata",
+            "certificate_hash": "6f1ea6d5b0e93354d19f0de008a2005b40e99478"
+          }
+        },
+        {
+          "client_id": "813353117552-itvvbt35lrmelptgttncnsb0q55a7dbc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhRbJCAzhdVQCb04rYoBJ_fjy1iFS6XNA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "813353117552-itvvbt35lrmelptgttncnsb0q55a7dbc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
