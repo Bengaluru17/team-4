@@ -17,26 +17,27 @@
   </head>
   <body ng-app="kshamataApp">
 
-    <div id="top-nav">
-      <div class="container">
-        <div class="logo">
-          <img src="images/logo.png" alt="">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-2">
+          <div class="logo">
+            <a href="#home"><img src="images/logo.png" alt=""></a>
+          </div>
+
+          <hr class="my-4">
+
+          <nav class="nav flex-column">
+            <a class="nav-link active" href="#home">Home</a>
+            <a class="nav-link" href="#members">Members</a>
+            <a class="nav-link" href="#schedule">Schedule Visits</a>
+            <a class="nav-link" href="#activity">Activity Training</a>
+            <a class="nav-link" href="#reports">Reports</a>
+          </nav>
         </div>
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Home</a>
-          </li>
-        </ul>
+        <div class="col-10">
+          <div ng-view></div>
+        </div>
       </div>
-    </div>
-
-    <div class="side-nav">
-      
-    </div>
-
-    <!-- Site Root -->
-    <div id="site" class="container">
-      <div ng-view></div>
     </div>
 
     <!-- JS -->
