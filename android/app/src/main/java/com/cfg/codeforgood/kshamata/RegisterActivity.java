@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText name,email,pwd;
@@ -23,6 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
     private ProgressDialog mProgress;
     private FirebaseAuth mAuth;
     private DatabaseReference mRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +54,8 @@ public class RegisterActivity extends AppCompatActivity {
         final String username = name.getText().toString();
         String mail = email.getText().toString();
         String password = pwd.getText().toString();
+
+        mRef = FirebaseDatabase.getInstance().getReference();
 
 
         if(!TextUtils.isEmpty(username) && !TextUtils.isEmpty(mail) && !TextUtils.isEmpty(password)){
