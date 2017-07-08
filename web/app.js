@@ -25,23 +25,37 @@ kshamataApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'pages/women.html'
     }).
     when('/women/add', {
-      templateUrl: 'pages/members/add/women.html'
+      templateUrl: 'pages/members/add/women.html',
+      controller: 'AddWomanController'
     }).
     when('/members/admins', {
-      templateUrl: 'pages/members/admins.html'
+      templateUrl: 'pages/members/admins.html',
+      controller: 'AddAdminController'
     }).
     when('/members/volunteers', {
-      templateUrl: 'pages/members/volunteers.html'
+      templateUrl: 'pages/members/volunteers.html',
+      controller: 'VolunteersController'
     }).
     when('/members/add/admin', {
-      templateUrl: 'pages/members/add/admin.html'
+      templateUrl: 'pages/members/add/admin.html',
+      controller: 'AddAdminController'
     }).
     when('/members/add/volunteer', {
-      templateUrl: 'pages/members/add/volunteer.html'
+      templateUrl: 'pages/members/add/volunteer.html',
+      controller: 'AddVolunteerController'
     }).
     otherwise({
   		redirectTo: '/home'
   	});
+}]);
+
+kshamataApp.controller('AddWomanController', ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
+  var womenRef = firebase.database().ref().child("women");
+  $scope.women = $firebaseArray(womenRef);
+
+  $scope.addWoman = function() {
+    $scope.women.$add($scope.woman);
+  };
 }]);
 
 kshamataApp.controller('AdminController', ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
