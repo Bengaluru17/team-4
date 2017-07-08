@@ -24,6 +24,9 @@ kshamataApp.config(['$routeProvider', function($routeProvider) {
     when('/women', {
       templateUrl: 'pages/women.html'
     }).
+    when('/women/add', {
+      templateUrl: 'pages/members/add/women.html'
+    }).
     when('/members/admins', {
       templateUrl: 'pages/members/admins.html'
     }).
