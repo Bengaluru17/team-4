@@ -29,6 +29,10 @@ kshamataApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'pages/members/add/women.html',
       controller: 'AddWomanController'
     }).
+    when('/woman/:id', {
+      templateUrl: 'pages/members/edit/woman.html',
+      controller: 'EditWomanController'
+    }).
     when('/members/admins', {
       templateUrl: 'pages/members/admins.html',
       controller: 'AdminController'
@@ -45,52 +49,120 @@ kshamataApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'pages/members/add/volunteer.html',
       controller: 'AddVolunteerController'
     }).
+    when('/schedule-visits', {
+      templateUrl: 'pages/schedule-visits.html',
+      controller: 'ScheduleVisitsController'
+    }).
+    when('/activity-tracking', {
+      templateUrl: 'pages/activity-tracking.html',
+      controller: 'ActivityTrackingController'
+    }).
+    when('/activity-tracking/add', {
+      templateUrl: 'pages/add-activity-tracking.html',
+      controller: 'AddActivityController'
+    }).
     otherwise({
   		redirectTo: '/home'
   	});
 }]);
 
-kshamataApp.controller('WomenController', ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
+kshamataApp.controller('WomenController', function($scope, $firebaseArray) {
   var womenRef = firebase.database().ref().child("women");
   $scope.women = $firebaseArray(womenRef);
-}]);
+});
 
-kshamataApp.controller('AddWomanController', ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
+kshamataApp.controller('EditWomanController', function($scope, $routeParams, $firebaseArray) {
+  var womenRef = firebase.database().ref().child("women");
+  $scope.women = $firebaseArray(womenRef);
+
+  $scope.women.$loaded().then(function() {
+    $scope.woman = $scope.women.$getRecord($routeParams.id);
+  });
+});
+
+kshamataApp.controller('AddWomanController', function($scope, $firebaseArray) {
   var womenRef = firebase.database().ref().child("women");
   $scope.women = $firebaseArray(womenRef);
 
   $scope.addWoman = function() {
-    $scope.woman.personal.dateOfBirth = $scope.woman.personal.dateOfBirth.getTime();
-    $scope.woman.initial.supportedFromDate = $scope.woman.initial.supportedFromDate.getTime();
-    
     $scope.women.$add($scope.woman);
   };
-}]);
+});
 
-kshamataApp.controller('AdminController', ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
+kshamataApp.controller('AdminController', function($scope, $firebaseArray) {
   var adminsRef = firebase.database().ref().child("admins");
   $scope.admins = $firebaseArray(adminsRef);
-}]);
+});
 
-kshamataApp.controller('AddAdminController', ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
+kshamataApp.controller('AddAdminController', function($scope, $firebaseArray) {
   var adminsRef = firebase.database().ref().child("admins");
   $scope.admins = $firebaseArray(adminsRef);
 
   $scope.addAdmin = function() {
     $scope.admins.$add($scope.admin);
   };
-}]);
+});
 
-kshamataApp.controller('VolunteersController', ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
+kshamataApp.controller('VolunteersController', function($scope, $firebaseArray) {
   var volunteersRef = firebase.database().ref().child("volunteers");
   $scope.volunteers = $firebaseArray(volunteersRef);
-}]);
+});
 
-kshamataApp.controller('AddVolunteerController', ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
+kshamataApp.controller('AddVolunteerController', function($scope, $firebaseArray) {
   var volunteersRef = firebase.database().ref().child("volunteers");
   $scope.volunteers = $firebaseArray(volunteersRef);
 
   $scope.addVolunteer = function() {
     $scope.volunteers.$add($scope.volunteer);
   };
-}]);
+});
+
+kshamataApp.controller('ScheduleVisitsController', function($scope, $firebaseArray) {
+  $( "#schedule-visit-form" ).hide();
+
+  var scheduleVisitsRef = firebase.database().ref().child("scheduleVisits");
+  $scope.scheduleVisits = $firebaseArray(scheduleVisitsRef);
+
+  var volunteersRef = firebase.database().ref().child("volunteers");
+  $scope.volunteers = $firebaseArray(volunteersRef);
+  $scope.volunteerSelect = [];
+
+  var womenRef = firebase.database().ref().child("women");
+  $scope.women = $firebaseArray(womenRef);
+  $scope.womanSelect = [];
+
+  $scope.women.$loaded().then(function() {
+    angular.forEach($scope.women, function(woman) {
+      $scope.womanSelect.push(woman.fullName);
+    });
+  });
+
+  $scope.volunteers.$loaded().then(function() {
+    angular.forEach($scope.volunteers, function(volunteer) {
+      $scope.volunteerSelect.push(volunteer.name);
+    });
+  });
+
+  $scope.openForm = function() {
+    $( "#schedule-visit-form" ).show();
+  };
+
+  $scope.hideForm = function() {
+    $scope.scheduleVisits.$add($scope.scheduleVisit);
+    $( "#schedule-visit-form" ).hide();
+  };
+});
+
+kshamataApp.controller('ActivityTrackingController', function($scope, $firebaseArray) {
+  var activityTrackingRef = firebase.database().ref().child("activityTracking");
+  $scope.activities = $firebaseArray(activityTrackingRef);
+});
+
+kshamataApp.controller('AddActivityController', function($scope, $firebaseArray) {
+  var activityTrackingRef = firebase.database().ref().child("activityTracking");
+  $scope.activities = $firebaseArray(activityTrackingRef);
+
+  $scope.addActivity = function() {
+    $scope.activities.$add($scope.activity);
+  };
+});
