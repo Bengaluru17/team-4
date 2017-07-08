@@ -42,6 +42,13 @@ public class Women_profie extends AppCompatActivity {
                 }
             }
         };
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Women_profie.this,Enter_details1.class);
+                startActivity(intent);
+            }
+        });
     }
     protected void onStart() {
         super.onStart();
