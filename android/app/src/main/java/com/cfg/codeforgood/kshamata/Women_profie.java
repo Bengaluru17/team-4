@@ -18,7 +18,7 @@ public class Women_profie extends AppCompatActivity {
     Button button;
     FirebaseAuth Auth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    DatabaseReference DatabaseUsers;
+
 
 
     @Override
@@ -29,7 +29,7 @@ public class Women_profie extends AppCompatActivity {
         Auth = FirebaseAuth.getInstance();
         button = (Button) findViewById(R.id.button2);
 
-        DatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Volunteers");
+
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -42,23 +42,18 @@ public class Women_profie extends AppCompatActivity {
                 }
             }
         };
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent details_1= new Intent(Women_profie.this, Enter_details1.class);
-                startActivity(details_1);
+                Intent intent = new Intent(Women_profie.this,Enter_details1.class);
+                startActivity(intent);
             }
         });
     }
-
-    @Override
     protected void onStart() {
         super.onStart();
-
-
+        Auth.addAuthStateListener(mAuthListener);
     }
-
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -71,15 +66,17 @@ public class Women_profie extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+
         if (item.getItemId() == R.id.action_logout) {
-            logout();
+         logout();
         }
 
         return super.onOptionsItemSelected(item);
     }
-
     private void logout() {
         Auth.signOut();
     }
+
+
 
 }

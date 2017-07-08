@@ -50,6 +50,7 @@ public class Enter_details1 extends AppCompatActivity {
         adapter.addFragment(new OneFragment(), "Personal Profile");
         adapter.addFragment(new TwoFragment(), "Details of Employment");
         adapter.addFragment(new ThirdFragment(), "Details of Living");
+        adapter.addFragment(new FourthFragment(), "Feedback");
         viewPager.setAdapter(adapter);
     }
 

@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     EditText mail,pwd;
-    Button login;
+    Button login,button;
     ProgressDialog mProgress;
 
 
@@ -35,10 +35,18 @@ public class LoginActivity extends AppCompatActivity {
         pwd = (EditText) findViewById(R.id.password);
 
         login = (Button)findViewById(R.id.login);
+        button = (Button)findViewById(R.id.button3);
 
         mAuth = FirebaseAuth.getInstance();
 
         mProgress = new ProgressDialog(this);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signup();
+            }
+        });
 
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +58,11 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private void signup() {
+        Intent sign = new Intent(LoginActivity.this,RegisterActivity.class);
+        startActivity(sign);
     }
 
     private void checklogin() {
