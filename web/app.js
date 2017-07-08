@@ -22,7 +22,8 @@ kshamataApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'pages/members.html'
     }).
     when('/women', {
-      templateUrl: 'pages/women.html'
+      templateUrl: 'pages/women.html',
+      controller: 'WomenController'
     }).
     when('/women/add', {
       templateUrl: 'pages/members/add/women.html',
@@ -30,7 +31,7 @@ kshamataApp.config(['$routeProvider', function($routeProvider) {
     }).
     when('/members/admins', {
       templateUrl: 'pages/members/admins.html',
-      controller: 'AddAdminController'
+      controller: 'AdminController'
     }).
     when('/members/volunteers', {
       templateUrl: 'pages/members/volunteers.html',
@@ -49,11 +50,19 @@ kshamataApp.config(['$routeProvider', function($routeProvider) {
   	});
 }]);
 
+kshamataApp.controller('WomenController', ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
+  var womenRef = firebase.database().ref().child("women");
+  $scope.women = $firebaseArray(womenRef);
+}]);
+
 kshamataApp.controller('AddWomanController', ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
   var womenRef = firebase.database().ref().child("women");
   $scope.women = $firebaseArray(womenRef);
 
   $scope.addWoman = function() {
+    $scope.woman.personal.dateOfBirth = $scope.woman.personal.dateOfBirth.getTime();
+    $scope.woman.initial.supportedFromDate = $scope.woman.initial.supportedFromDate.getTime();
+    
     $scope.women.$add($scope.woman);
   };
 }]);
