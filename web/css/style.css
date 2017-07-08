@@ -1,0 +1,17 @@
+#top-nav {
+  height: 100px;
+  background-color: #F5F5F5;
+}
+
+.logo {
+  padding-top: 10px;
+  float: left;
+}
+
+  .logo img {
+    height: 80px;
+  }
+
+.nav {
+
+}
