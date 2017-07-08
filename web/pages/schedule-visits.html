@@ -1,0 +1,56 @@
+<p>&nbsp;</p>
+
+<div ng-controller="ScheduleVisitsController">
+  <div class="row">
+    <div class="col-6"><h3>Schedule Visits</h3></div>
+    <div class="col-2 offset-4"><a class="btn btn-warning btn-block" role="button" ng-click="openForm();">Set up new visit</a></div>
+  </div>
+
+  <div id="schedule-visit-form">
+    <form class="col-2">
+      <div class="form-group">
+        <label>Volunteer</label>
+        <select class="form-control" ng-options="item as item for item in volunteerSelect track by item.id" ng-model="scheduleVisit.volunteer"></select>
+      </div>
+
+      <div class="form-group">
+        <label>Woman</label>
+        <select class="form-control" ng-options="item as item for item in womanSelect track by item.id" ng-model="scheduleVisit.woman"></select>
+      </div>
+
+      <div class="form-group">
+        <label>Date</label>
+        <input type="text" class="form-control" ng-model="scheduleVisit.date">
+      </div>
+
+      <div class="form-group">
+        <label>Time</label>
+        <input type="text" class="form-control" ng-model="scheduleVisit.time">
+      </div>
+
+      <button type="submit" class="btn btn-primary" ng-click="hideForm();">Submit</button>
+    </form>
+  </div>
+
+  <p>&nbsp;</p>
+  <table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Volunteer</th>
+      <th>Woman (Survivor)</th>
+      <th>Date</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="schedule in scheduleVisits">
+      <th scope="row">{{ $index + 1 }}</th>
+      <td>{{ schedule.volunteer }}</td>
+      <td>{{ schedule.woman }}</td>
+      <td>{{ schedule.date }}</td>
+      <td>{{ schedule.time }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>

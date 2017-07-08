@@ -1,0 +1,58 @@
+<p>&nbsp;</p>
+
+<div ng-controller="AddWomanController">
+  <h3>Add a new Woman into Kshamata System</h3>
+  <p>&nbsp;</p>
+
+  <form class="col-10">
+    <h4 class="form-section-heading">Personal Details</h4>
+
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" class="form-control" ng-model="woman.fullName" placeholder="Enter Woman's Full Name">
+    </div>
+
+    <div class="form-group">
+      <label>Date of Birth</label>
+      <input type="text" class="form-control" ng-model="woman.dateOfBirth" placeholder="Enter Woman's Date of Birth">
+    </div>
+
+    <div class="form-group">
+      <label>Photo</label>
+      <div class="input-group">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" type="button">Browse</button>
+        </span>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+    </div>
+
+    <p>&nbsp;</p>
+
+    <h4 class="form-section-heading">Initial Information</h4>
+
+    <div class="form-group">
+      <label>Education level when starting with Kshamata</label>
+      <input type="text" class="form-control" ng-model="woman.education" placeholder="Enter Woman's Education level when starting with Kshamata">
+    </div>
+
+    <div class="form-group">
+      <label>Date from which she is supported</label>
+      <input type="text" class="form-control" ng-model="woman.supportedFromDate" placeholder="">
+    </div>
+
+    <div class="form-group">
+      <label>Initial Location</label>
+      <select class="form-control" ng-model="woman.location">
+        <option>Shelter Home</option>
+        <option>Kshamata Transformation Centre</option>
+      </select>
+    </div>
+
+    <p>&nbsp;</p>
+
+    <button type="button" class="btn btn-primary col-2 offset-2" ng-click="addWoman();">Submit</button>
+    <button type="button" class="btn btn-warning col-2 offset-2">Reset</button>
+
+  </form>
+</div>

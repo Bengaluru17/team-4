@@ -1,0 +1,61 @@
+<p>&nbsp;</p>
+
+<div ng-controller="AddActivityController">
+  <h3>Add New Activity</h3>
+  <p>&nbsp;</p>
+
+  <form class="col-10">
+    <h4 class="form-section-heading">ACTIVITY DETAILS</h4>
+
+    <div class="form-group">
+      <label>Activity Name</label>
+      <input type="text" class="form-control" ng-model="activity.name" placeholder="Enter Activity Name">
+    </div>
+
+    <div class="form-group">
+      <label>Institution where the Activity is Conducted</label>
+      <input type="text" class="form-control" ng-model="activity.institution" placeholder="Enter Institution where the Activity is Conducted">
+    </div>
+
+    <div class="form-group">
+      <label>Start Date</label>
+      <input type="text" class="form-control" ng-model="activity.startDate" placeholder="Enter Start Date">
+    </div>
+
+    <div class="form-group">
+      <label>End Date</label>
+      <input type="text" class="form-control" ng-model="activity.endDate" placeholder="Enter End Date">
+    </div>
+
+    <div class="form-group">
+      <label>Nature of Activity</label>
+      <input type="text" class="form-control" ng-model="activity.nature" placeholder="Enter Nature of Activity">
+    </div>
+
+    <div class="form-group">
+      <label>Number of Women engaged in Activity</label>
+      <input type="number" class="form-control" ng-model="activity.numberEngaged" placeholder="Enter Number of Women engaged in Activity">
+    </div>
+
+    <div class="form-group">
+      <label>What Outcome was Expected</label>
+      <textarea class="form-control" ng-model="activity.outcomeExpected" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>What Outcome was Obtained</label>
+      <textarea class="form-control" ng-model="activity.outcomeObtained" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Amount Spent</label>
+      <input type="number" class="form-control" ng-model="activity.amountSpent" placeholder="Enter Amount Spent">
+    </div>
+
+    <p>&nbsp;</p>
+
+    <button type="button" class="btn btn-primary col-2 offset-2" ng-click="addActivity();">Submit</button>
+    <button type="button" class="btn btn-warning col-2 offset-2">Reset</button>
+
+  </form>
+</div>

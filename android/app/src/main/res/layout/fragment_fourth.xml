@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cfg.codeforgood.kshamata.FourthFragment">
+
+
+    <EditText
+        android:id="@+id/feedback_neighbours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="29dp"
+        android:ems="10"
+        android:hint="Feedback From Neighbours......"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/feedback_employer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/feedback_neighbours"
+        android:layout_alignStart="@+id/feedback_neighbours"
+        android:layout_below="@+id/feedback_neighbours"
+        android:layout_marginTop="134dp"
+        android:ems="10"
+        android:hint="Feedback From Employer....."
+        android:inputType="textMultiLine"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/feedback_employer"
+        android:layout_alignStart="@+id/feedback_employer"
+        android:layout_below="@+id/feedback_employer"
+        android:layout_marginLeft="110dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="95dp"
+        android:elevation="0dp"
+        android:text="Save Details" />
+</RelativeLayout>

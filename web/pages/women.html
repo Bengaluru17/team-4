@@ -1,0 +1,27 @@
+<p>&nbsp;</p>
+
+<div ng-controller="WomenController">
+  <div class="row">
+    <div class="col-6"><h3>Women under Kshamata's Care</h3></div>
+    <div class="col-5"><input type="text" class="form-control" placeholder="Search Filter"></div>
+    <div class="col-1"><a class="btn btn-warning btn-block" href="#women/add" role="button">Add New</a></div>
+  </div>
+
+  <p>&nbsp;</p>
+  <ul id="women-list" class="list-group">
+    <a href="#woman/{{ woman.$id }}" class="list-group-item list-group-item-action flex-column align-items-start" ng-repeat="woman in women">
+      <br>
+      <div class="d-flex w-100 justify-content-between">
+        <h4>{{ $index + 1 }}. {{ woman.fullName }}</h4>
+        <div class="edit-delete-buttons">
+          <button type="button" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+          <button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        </div>
+      </div>
+      <p>
+        <span><strong>Last Tracked Time:</strong> 20/20/2020 20:20 AM</span><br>
+        <span><strong>Last Tracked Location:</strong> Bengaluru, Karnataka, India</span><br>
+      </p>
+    </a>
+  </ul>
+</div>
