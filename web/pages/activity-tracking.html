@@ -1,0 +1,40 @@
+<p>&nbsp;</p>
+
+<div ng-controller="ActivityTrackingController">
+  <div class="row">
+    <div class="col-6"><h3>Activity Tracking</h3></div>
+    <div class="col-2 offset-4"><a href="#activity-tracking/add" class="btn btn-warning btn-block" role="button">Set up new visit</a></div>
+  </div>
+
+  <p>&nbsp;</p>
+  <table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Activity Name</th>
+      <th>Institution where the Activity is Conducted</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Nature of Activity</th>
+      <th>Number of Women engaged in Activity</th>
+      <th>What Outcome was Expected</th>
+      <th>What Outcome Was Obtained</th>
+      <th>Amount Spent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="activity in activities">
+      <th scope="row">{{ $index + 1 }}</th>
+      <td>{{ activity.name }}</td>
+      <td>{{ activity.institution }}</td>
+      <td>{{ activity.startDate }}</td>
+      <td>{{ activity.endDate }}</td>
+      <td>{{ activity.nature }}</td>
+      <td>{{ activity.numberEngaged }}</td>
+      <td>{{ activity.outcomeExpected }}</td>
+      <td>{{ activity.outcomeObtained }}</td>
+      <td>{{ activity.amountSpent }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
