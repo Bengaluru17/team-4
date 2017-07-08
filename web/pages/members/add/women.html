@@ -21,9 +21,33 @@
       </select>
     </div>
 
+    <p>&nbsp;</p>
+
+    <h4 class="form-section-heading">Personal Details</h4>
+
     <div class="form-group">
-      <label>Email Address</label>
-      <input type="email" class="form-control" ng-model="woman.emailAddress" placeholder="Enter Volunteer's Email Address">
+      <label>Full Name</label>
+      <input type="text" class="form-control" ng-model="woman.fullName" placeholder="Enter Woman's Full Name">
+    </div>
+
+    <div class="form-group">
+      <label>Date of Birth</label>
+      <input type="date" class="form-control" ng-model="woman.dateOfBirth" placeholder="Enter Woman's Date of Birth">
+    </div>
+
+    <div class="form-group">
+      <label>Photo</label>
+      <div class="input-group">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" type="button">Browse</button>
+        </span>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Education level when starting with Kshamata</label>
+      <input type="text" class="form-control" ng-model="woman.educationInitial" placeholder="Enter Woman's Education level when starting with Kshamata">
     </div>
 
     <p>&nbsp;</p>

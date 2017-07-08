@@ -11,7 +11,7 @@
   <ul id="volunteer-list" class="list-group">
     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" ng-repeat="volunteer in volunteers">
       <br>
-      <h4>{{ volunteer.name }}</h4>
+      <h4>{{ $index + 1 }}. {{ volunteer.name }}</h4>
       <p>
         <span><strong>Contact Number:</strong> {{ volunteer.contactNumber }}</span><br>
         <span><strong>Email Address:</strong> {{ volunteer.emailAddress }}</span><br>
