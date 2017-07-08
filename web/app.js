@@ -16,8 +16,7 @@ var kshamataApp = angular.module('kshamataApp', ['ngRoute', 'firebase']);
 kshamataApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
   	when('/home', {
-  		templateUrl: 'pages/home.html',
-  		controller: 'HomeController'
+  		templateUrl: 'pages/home.html'
   	}).
     when('/members', {
       templateUrl: 'pages/members.html'
@@ -42,12 +41,30 @@ kshamataApp.config(['$routeProvider', function($routeProvider) {
   	});
 }]);
 
-kshamataApp.controller('HomeController', function($scope, $firebaseArray) {
+kshamataApp.controller('AdminController', ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
+  var adminsRef = firebase.database().ref().child("admins");
+  $scope.admins = $firebaseArray(adminsRef);
+}]);
 
-});
+kshamataApp.controller('AddAdminController', ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
+  var adminsRef = firebase.database().ref().child("admins");
+  $scope.admins = $firebaseArray(adminsRef);
 
-kshamataApp.controller('AddVolunteerController', ["$scope", "$firebaseObject", function($scope, $firebaseObject) {
+  $scope.addAdmin = function() {
+    $scope.admins.$add($scope.admin);
+  };
+}]);
+
+kshamataApp.controller('VolunteersController', ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
   var volunteersRef = firebase.database().ref().child("volunteers");
+  $scope.volunteers = $firebaseArray(volunteersRef);
+}]);
 
-  $scope.profile = $firebaseObject();
+kshamataApp.controller('AddVolunteerController', ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
+  var volunteersRef = firebase.database().ref().child("volunteers");
+  $scope.volunteers = $firebaseArray(volunteersRef);
+
+  $scope.addVolunteer = function() {
+    $scope.volunteers.$add($scope.volunteer);
+  };
 }]);
