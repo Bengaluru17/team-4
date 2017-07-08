@@ -108,4 +108,17 @@
         android:layout_marginStart="44dp"
         android:id="@+id/radioButton4" />
 
+    <Button
+        android:text="CONTINUE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioButton4"
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="22dp"
+        android:id="@+id/button2"
+        android:onClick="disp3"/>
+
 </RelativeLayout>
