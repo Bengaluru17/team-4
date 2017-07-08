@@ -47,9 +47,9 @@ public class Enter_details1 extends AppCompatActivity {
 
     public void setupViewPager(ViewPager ViewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new OneFragment(), "Employment Details");
-        adapter.addFragment(new TwoFragment(), "");
-        adapter.addFragment(new ThirdFragment(), "Activities/Initiatives");
+        adapter.addFragment(new OneFragment(), "Personal Profile");
+        adapter.addFragment(new TwoFragment(), "Details of Employment");
+        adapter.addFragment(new ThirdFragment(), "Details of Living");
         viewPager.setAdapter(adapter);
     }
 
