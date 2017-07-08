@@ -18,11 +18,14 @@ import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import dalvik.system.BaseDexClassLoader;
 
 public class Women_profie extends AppCompatActivity {
 
@@ -43,6 +46,7 @@ public class Women_profie extends AppCompatActivity {
         Auth = FirebaseAuth.getInstance();
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("women");
+        mDatabase.keepSynced(true);
         mCardView = (RecyclerView)findViewById(R.id.recycler_view);
         mCardView.setHasFixedSize(true);
         mCardView.setLayoutManager(new LinearLayoutManager(this));
@@ -75,9 +79,10 @@ public class Women_profie extends AppCompatActivity {
                 mDatabase
         ) {
             @Override
-            protected void populateViewHolder(CardViewHolder viewHolder, Blog model, int position) {
+            protected void populateViewHolder(CardViewHolder viewHolder, Blog model, final int position) {
                 viewHolder.setFullname(model.getFullname());
                 viewHolder.setlocation(model.getLocation());
+                viewHolder.setlocation(model.getId());
 
 
                 }
@@ -102,6 +107,8 @@ public class Women_profie extends AppCompatActivity {
             TextView post_location = (TextView) mView.findViewById(R.id.location_field);
             post_location.setText(location);
         }
+
+
 
     }
 

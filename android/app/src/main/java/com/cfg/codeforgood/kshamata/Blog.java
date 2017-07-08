@@ -7,6 +7,7 @@ package com.cfg.codeforgood.kshamata;
 public class Blog {
     private String fullName;
     private String location;
+    private String Id;
 
     public Blog(){
 
@@ -32,5 +33,13 @@ public class Blog {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
     }
 }
