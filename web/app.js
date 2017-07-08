@@ -46,8 +46,12 @@ kshamataApp.controller('HomeController', function($scope, $firebaseArray) {
 
 });
 
-kshamataApp.controller('AddVolunteerController', ["$scope", "$firebaseObject", function($scope, $firebaseObject) {
+kshamataApp.controller('AddVolunteerController', ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
   var volunteersRef = firebase.database().ref().child("volunteers");
 
-  $scope.profile = $firebaseObject();
+  $scope.volunteer = $firebaseArray(volunteersRef);
+
+  $scope.addVolunteer = function() {
+    $scope.volunteer.$add($scope.newVolunteer);
+  };
 }]);
