@@ -27,7 +27,7 @@
         app:srcCompat="@mipmap/ic_add_to_photos_white_24dp" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/name_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Your name goes here..."
@@ -36,7 +36,7 @@
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/location_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="15dp"
