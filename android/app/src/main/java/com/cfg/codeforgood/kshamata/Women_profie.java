@@ -106,6 +106,7 @@ public class Women_profie extends AppCompatActivity {
         public void setlocation(String location){
             TextView post_location = (TextView) mView.findViewById(R.id.location_field);
             post_location.setText(location);
+
         }
 
 
