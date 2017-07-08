@@ -22,8 +22,8 @@ kshamataApp.config(['$routeProvider', function($routeProvider) {
     when('/members', {
       templateUrl: 'pages/members.html'
     }).
-    when('/members/women', {
-      templateUrl: 'pages/members/women.html'
+    when('/women', {
+      templateUrl: 'pages/women.html'
     }).
     when('/members/admins', {
       templateUrl: 'pages/members/admins.html'
@@ -34,6 +34,9 @@ kshamataApp.config(['$routeProvider', function($routeProvider) {
     when('/members/add/admin', {
       templateUrl: 'pages/members/add/admin.html'
     }).
+    when('/members/add/volunteer', {
+      templateUrl: 'pages/members/add/volunteer.html'
+    }).
     otherwise({
   		redirectTo: '/home'
   	});
@@ -42,3 +45,9 @@ kshamataApp.config(['$routeProvider', function($routeProvider) {
 kshamataApp.controller('HomeController', function($scope, $firebaseArray) {
 
 });
+
+kshamataApp.controller('AddVolunteerController', ["$scope", "$firebaseObject", function($scope, $firebaseObject) {
+  var volunteersRef = firebase.database().ref().child("volunteers");
+
+  $scope.profile = $firebaseObject();
+}]);

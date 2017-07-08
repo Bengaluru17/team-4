@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">kshamata</string>
+    <string name="profession_prompt">Choose profession</string>
+
+    <string-array name="pro_arrays">
+        <item>Tailoring</item>
+        <item>Pickle making</item>
+        <item>Pappad</item>
+        <item>Embroidery design</item>
+        <item>Cooking</item>
+        <item>Driving</item>
+
+    </string-array>
 </resources>
