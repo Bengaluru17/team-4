@@ -138,4 +138,16 @@
         android:hint="Enter Future Goals..."
         android:inputType="textMultiLine" />
 
+    <Button
+        android:id="@+id/submit11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        android:text="Save Details"
+
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_alignEnd="@+id/textView3"
+        android:layout_marginBottom="35dp" />
+
 </RelativeLayout>

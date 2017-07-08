@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -53,6 +54,8 @@ public class Enter_details1 extends AppCompatActivity {
         adapter.addFragment(new FourthFragment(), "Feedback");
         viewPager.setAdapter(adapter);
     }
+
+
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
 
