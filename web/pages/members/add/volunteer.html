@@ -1,43 +1,45 @@
 <p>&nbsp;</p>
 
-<h3>Add New Volunteer</h3>
-<p>&nbsp;</p>
-
-<form class="col-10">
-  <h4 class="form-section-heading">DETAILS</h4>
-
-  <div class="form-group">
-    <label>Name</label>
-    <input type="text" class="form-control" ng-model="volunteer.name" placeholder="Enter Volunteer's Name">
-  </div>
-
-  <div class="form-group">
-    <label>Contact Number</label>
-    <input type="tel" class="form-control" ng-model="volunteer.contactNumber" placeholder="Enter Volunteer's Contact Number">
-  </div>
-
-  <div class="form-group">
-    <label>Email Address</label>
-    <input type="email" class="form-control" ng-model="volunteer.emailAddress" placeholder="Enter Volunteer's Email Address">
-  </div>
-
+<div ng-controller="AddVolunteerController">
+  <h3>Add New Volunteer</h3>
   <p>&nbsp;</p>
 
-  <h4 class="form-section-heading">AUTHENTICATION</h4>
+  <form class="col-10">
+    <h4 class="form-section-heading">DETAILS</h4>
 
-  <div class="form-group">
-    <label>Username</label>
-    <input type="text" class="form-control" ng-model="volunteer.username" placeholder="Enter Username">
-  </div>
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" ng-model="volunteer.name" placeholder="Enter Volunteer's Name">
+    </div>
 
-  <div class="form-group">
-    <label>Password</label>
-    <input type="password" class="form-control" ng-model="volunteer.password" placeholder="Enter Password">
-  </div>
+    <div class="form-group">
+      <label>Contact Number</label>
+      <input type="tel" class="form-control" ng-model="volunteer.contactNumber" placeholder="Enter Volunteer's Contact Number">
+    </div>
 
-  <p>&nbsp;</p>
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" class="form-control" ng-model="volunteer.emailAddress" placeholder="Enter Volunteer's Email Address">
+    </div>
 
-  <button type="button" class="btn btn-primary col-2 offset-2">Submit</button>
-  <button type="button" class="btn btn-warning col-2 offset-2">Reset</button>
+    <p>&nbsp;</p>
 
-</form>
+    <h4 class="form-section-heading">AUTHENTICATION</h4>
+
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" class="form-control" ng-model="volunteer.username" placeholder="Enter Username">
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" ng-model="volunteer.password" placeholder="Enter Password">
+    </div>
+
+    <p>&nbsp;</p>
+
+    <button type="button" class="btn btn-primary col-2 offset-2" ng-click="addVolunteer();">Submit</button>
+    <button type="button" class="btn btn-warning col-2 offset-2">Reset</button>
+
+  </form>
+</div>

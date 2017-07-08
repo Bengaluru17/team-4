@@ -45,3 +45,9 @@ kshamataApp.config(['$routeProvider', function($routeProvider) {
 kshamataApp.controller('HomeController', function($scope, $firebaseArray) {
 
 });
+
+kshamataApp.controller('AddVolunteerController', ["$scope", "$firebaseObject", function($scope, $firebaseObject) {
+  var volunteersRef = firebase.database().ref().child("volunteers");
+
+  $scope.profile = $firebaseObject();
+}]);
