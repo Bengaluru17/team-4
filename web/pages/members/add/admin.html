@@ -1,0 +1,45 @@
+<p>&nbsp;</p>
+
+<div ng-controller="AddAdminController">
+  <h3>Add New Administrator</h3>
+  <p>&nbsp;</p>
+
+  <form class="col-10">
+    <h4 class="form-section-heading">DETAILS</h4>
+
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" ng-model="admin.name" placeholder="Enter Administrator's Name">
+    </div>
+
+    <div class="form-group">
+      <label>Contact Number</label>
+      <input type="tel" class="form-control" ng-model="admin.contactNumber" placeholder="Enter Administrator's Contact Number">
+    </div>
+
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" class="form-control" ng-model="admin.emailAddress" placeholder="Enter Administrator's Email Address">
+    </div>
+
+    <p>&nbsp;</p>
+
+    <h4 class="form-section-heading">AUTHENTICATION</h4>
+
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" class="form-control" ng-model="admin.username" placeholder="Enter Username">
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" ng-model="admin.password" placeholder="Enter Password">
+    </div>
+
+    <p>&nbsp;</p>
+
+    <button type="button" class="btn btn-primary col-2 offset-2" ng-click="addAdmin();">Submit</button>
+    <button type="button" class="btn btn-warning col-2 offset-2">Reset</button>
+
+  </form>
+</div>

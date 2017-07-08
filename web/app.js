@@ -41,6 +41,20 @@ kshamataApp.config(['$routeProvider', function($routeProvider) {
   	});
 }]);
 
+kshamataApp.controller('AdminController', ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
+  var adminsRef = firebase.database().ref().child("admins");
+  $scope.admins = $firebaseArray(adminsRef);
+}]);
+
+kshamataApp.controller('AddAdminController', ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
+  var adminsRef = firebase.database().ref().child("admins");
+  $scope.admins = $firebaseArray(adminsRef);
+
+  $scope.addAdmin = function() {
+    $scope.admins.$add($scope.admin);
+  };
+}]);
+
 kshamataApp.controller('VolunteersController', ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
   var volunteersRef = firebase.database().ref().child("volunteers");
   $scope.volunteers = $firebaseArray(volunteersRef);
