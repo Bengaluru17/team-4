@@ -179,7 +179,11 @@ kshamataApp.controller('ReportController', function($scope, $location, $firebase
   var womenRef = firebase.database().ref().child("women");
   $scope.women = $firebaseArray(womenRef);
 
+  var activityTrackingRef = firebase.database().ref().child("activityTracking");
+  $scope.activities = $firebaseArray(activityTrackingRef);
+
   $scope.report1 = [];
+  $scope.report2 = [];
 
   $scope.women.$loaded().then(function() {
     angular.forEach($scope.women, function(woman) {
@@ -193,4 +197,21 @@ kshamataApp.controller('ReportController', function($scope, $location, $firebase
       }
     });
   });
+
+  $scope.activities.$loaded().then(function() {
+    angular.forEach($scope.activities, function(activity) {
+      $scope.report2.push({
+        industry: activity.institution,
+        number: activity.numberEngaged
+      });
+    });
+  });
+
+  $scope.report3 = [];
+
+  $scope.report3.push({ name: 'Laskhmi Chinmayi' });
+  $scope.report3.push({ name: 'Maria Benz' });
+  $scope.report3.push({ name: 'Veena S' });
+  $scope.report3.push({ name: 'Seema Devi' });
+  $scope.report3.push({ name: 'Padmavathi Devi' });
 });
