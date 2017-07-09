@@ -26,27 +26,27 @@ kshamataApp.config(['$routeProvider', function($routeProvider) {
       controller: 'WomenController'
     }).
     when('/women/add', {
-      templateUrl: 'pages/members/add/women.html',
+      templateUrl: 'pages/users/add/women.html',
       controller: 'AddWomanController'
     }).
     when('/woman/:id', {
-      templateUrl: 'pages/members/edit/woman.html',
+      templateUrl: 'pages/users/edit/woman.html',
       controller: 'EditWomanController'
     }).
-    when('/members/admins', {
-      templateUrl: 'pages/members/admins.html',
+    when('/users/admins', {
+      templateUrl: 'pages/users/admins.html',
       controller: 'AdminController'
     }).
-    when('/members/volunteers', {
-      templateUrl: 'pages/members/volunteers.html',
+    when('/users/volunteers', {
+      templateUrl: 'pages/users/volunteers.html',
       controller: 'VolunteersController'
     }).
-    when('/members/add/admin', {
-      templateUrl: 'pages/members/add/admin.html',
+    when('/users/add/admin', {
+      templateUrl: 'pages/users/add/admin.html',
       controller: 'AddAdminController'
     }).
-    when('/members/add/volunteer', {
-      templateUrl: 'pages/members/add/volunteer.html',
+    when('/users/add/volunteer', {
+      templateUrl: 'pages/users/add/volunteer.html',
       controller: 'AddVolunteerController'
     }).
     when('/schedule-visits', {
@@ -60,6 +60,10 @@ kshamataApp.config(['$routeProvider', function($routeProvider) {
     when('/activity-tracking/add', {
       templateUrl: 'pages/add-activity-tracking.html',
       controller: 'AddActivityController'
+    }).
+    when('/reports', {
+      templateUrl: 'pages/report.html',
+      controller: 'ReportController'
     }).
     otherwise({
   		redirectTo: '/home'
@@ -80,12 +84,13 @@ kshamataApp.controller('EditWomanController', function($scope, $routeParams, $fi
   });
 });
 
-kshamataApp.controller('AddWomanController', function($scope, $firebaseArray) {
+kshamataApp.controller('AddWomanController', function($scope, $location, $firebaseArray) {
   var womenRef = firebase.database().ref().child("women");
   $scope.women = $firebaseArray(womenRef);
 
   $scope.addWoman = function() {
     $scope.women.$add($scope.woman);
+    $location.path('/women');
   };
 });
 
@@ -94,12 +99,13 @@ kshamataApp.controller('AdminController', function($scope, $firebaseArray) {
   $scope.admins = $firebaseArray(adminsRef);
 });
 
-kshamataApp.controller('AddAdminController', function($scope, $firebaseArray) {
+kshamataApp.controller('AddAdminController', function($scope, $location, $firebaseArray) {
   var adminsRef = firebase.database().ref().child("admins");
   $scope.admins = $firebaseArray(adminsRef);
 
   $scope.addAdmin = function() {
     $scope.admins.$add($scope.admin);
+    $location.path('/users/admin');
   };
 });
 
@@ -108,12 +114,13 @@ kshamataApp.controller('VolunteersController', function($scope, $firebaseArray) 
   $scope.volunteers = $firebaseArray(volunteersRef);
 });
 
-kshamataApp.controller('AddVolunteerController', function($scope, $firebaseArray) {
+kshamataApp.controller('AddVolunteerController', function($scope, $location, $firebaseArray) {
   var volunteersRef = firebase.database().ref().child("volunteers");
   $scope.volunteers = $firebaseArray(volunteersRef);
 
   $scope.addVolunteer = function() {
     $scope.volunteers.$add($scope.volunteer);
+    $location.path('/users/volunteers');
   };
 });
 
@@ -158,11 +165,22 @@ kshamataApp.controller('ActivityTrackingController', function($scope, $firebaseA
   $scope.activities = $firebaseArray(activityTrackingRef);
 });
 
-kshamataApp.controller('AddActivityController', function($scope, $firebaseArray) {
+kshamataApp.controller('AddActivityController', function($scope, $location, $firebaseArray) {
   var activityTrackingRef = firebase.database().ref().child("activityTracking");
   $scope.activities = $firebaseArray(activityTrackingRef);
 
   $scope.addActivity = function() {
     $scope.activities.$add($scope.activity);
+    $location.path('/activity-tracking');
+  };
+});
+
+kshamataApp.controller('ReportController', function($scope, $location, $firebaseArray) {
+  var activityTrackingRef = firebase.database().ref().child("activityTracking");
+  $scope.activities = $firebaseArray(activityTrackingRef);
+
+  $scope.addActivity = function() {
+    $scope.activities.$add($scope.activity);
+    $location.path('/activity-tracking');
   };
 });

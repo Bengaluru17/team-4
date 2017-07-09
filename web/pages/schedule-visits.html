@@ -1,3 +1,7 @@
+<div class="img-responsive"
+  style="background-image: url('../images/7.jpg'); min-height: 200px; background-size: contain;">
+</div>
+
 <p>&nbsp;</p>
 
 <div ng-controller="ScheduleVisitsController">
@@ -10,12 +14,12 @@
     <form class="col-2">
       <div class="form-group">
         <label>Volunteer</label>
-        <select class="form-control" ng-options="item as item for item in volunteerSelect track by item.id" ng-model="scheduleVisit.volunteer"></select>
+        <select class="form-control" ng-options="item as item for item in volunteerSelect track by item.$id" ng-model="scheduleVisit.volunteer"></select>
       </div>
 
       <div class="form-group">
         <label>Woman</label>
-        <select class="form-control" ng-options="item as item for item in womanSelect track by item.id" ng-model="scheduleVisit.woman"></select>
+        <select class="form-control" ng-options="item as item for item in womanSelect track by item.$id" ng-model="scheduleVisit.woman"></select>
       </div>
 
       <div class="form-group">

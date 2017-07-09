@@ -1,99 +1,52 @@
-<div class="form-group">
-  <label></label>
-  <input type="text" class="form-control" ng-model="tracking.">
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="HandheldFriendly" content="true">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.02, minimal-ui, maximum-scale=1">
 
-<div class="form-group">
-  <label>Life Skills</label>
-  <textarea class="form-control" ng-model="tracking.lifeSkills"></textarea>
-</div>
+    <title>Kshamata</title>
 
-<div class="form-group">
-  <label>Vocational Skills</label>
-  <textarea class="form-control" ng-model="tracking.vocationalSkills"></textarea>
-</div>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/tether.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootswatch.materia.min.css">
 
-<div class="form-group">
-	<label>Skills</label>
-	<input type ="text" class = "form-control" ng-model="tracking.Skills">
-</div>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body ng-app="kshamataApp">
 
-<div class = "form-group">
-	<label>Further Education during engagement with Kshamata</label>
-	<input type ="text" class = "form-control" ng-model="tracking.furtherEducationDuringEngagementWithKshamata">
-</div>
+    <div class="container">
+      <div class="text-center" style="margin: 0 auto;">
+        <img src="../images/logo.png" alt="" class="img-responsive" style="text-align: center;">
+      </div>
 
-<div class = "form-group">
-	<label>Current-Employer</label>
-	<input type ="text" class = "form-control" ng-model="tracking.currentEmployer">
-</div>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
 
-<div class = "form-group">
-	<label>Salary when she joined</label>
-	<input type ="number" class = "form-control" ng-model="tracking.salaryWhenSheJoined">
-</div>
+      <div ng-view></div>
 
-<div class = "form-group">
-	<label>Current Salary</label>
-	<input type ="number" class = "form-control" ng-model="tracking.currentSalary">
-</div>	
+    </div>
 
-<div class = "form-group">
-	<label>Key Job Responibilities</label>
-	<input type ="text" class = "form-control" ng-model="tracking.keyjobresponsibilities">
-</div>
+<!-- JS -->
+<script src="../js/jquery.min.js" charset="utf-8"></script>
+<script src="../js/tether.min.js" charset="utf-8"></script>
+<script src="../js/bootstrap.min.js" charset="utf-8"></script>
 
+<!-- AngularJS 1.5.8 -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
 
+<!-- Firebase by Google 3.6.1 -->
+<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
 
-<div class = "form-group">
-	<label>Future Growth</label>
-	<textarea class="form-control" ng-model="tracking.futureGrowth"></textarea>
-</div>
+<!-- AngularFire 2.1.0 -->
+<script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
 
-<div class = "form-group">
-	<label>Location</label>
-	<input type ="text" class = "form-control" ng-model="tracking.location">
-</div>
+<!-- FontAwesome -->
+<script src="https://use.fontawesome.com/00134382b6.js"></script>
 
-<div class = "form-group">
-	<label>Accomodation</label>
-	<input type ="select" class = "form-control" ng-model="tracking.accomodation">
-</div>
-
-<div class = "form-group">
-	<label>Average Expenses</label>
-	<input type ="number" class = "form-control" ng-model="tracking.averageExpenses">
-</div>
-
-<div class = "form-group">
-	<label>Savings</label>
-	<input type ="number" class = "form-control" ng-model="tracking.savings">
-</div>
-
-<div class = "form-group">
-	<label>Housemates</label>
-	<input type ="text" class = "form-control" ng-model="tracking.housemates">
-</div>
-
-<div class = "form-group">
-	<label>Neighbours</label>
-	<input type ="text" class = "form-control" ng-model="tracking.neighbours">
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-
-
-L
+<script src="app.js" charset="utf-8"></script>
+</body>
+</html>

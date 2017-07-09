@@ -1,15 +1,19 @@
+<div class="img-responsive"
+  style="background-image: url('../images/6.jpg'); min-height: 200px; background-size: contain;">
+</div>
+
 <p>&nbsp;</p>
 
 <div ng-controller="AdminController">
   <div class="row">
     <div class="col-6"><h3>Administrator</h3></div>
-    <div class="col-5"><input type="text" class="form-control" placeholder="Search Filter"></div>
-    <div class="col-1"><a class="btn btn-warning btn-block" href="#members/add/admin" role="button">Add New</a></div>
+    <div class="col-5"><input type="text" class="form-control" ng-model="search" placeholder="Search Filter"></div>
+    <div class="col-1"><a class="btn btn-warning btn-block" href="#users/add/admin" role="button">Add New</a></div>
   </div>
 
   <p>&nbsp;</p>
   <ul id="admins-list" class="list-group">
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" ng-repeat="admin in admins">
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" ng-repeat="admin in admins | filter: search">
       <br>
       <h4>{{ $index + 1 }}. {{ admin.name }}</h4>
       <p>

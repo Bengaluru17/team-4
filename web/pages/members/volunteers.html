@@ -1,19 +1,19 @@
+<div class="img-responsive"
+  style="background-image: url('../images/8.jpg'); min-height: 200px; background-size: contain;">
+</div>
+
 <p>&nbsp;</p>
 
 <div ng-controller="VolunteersController">
   <div class="row">
     <div class="col-6"><h3>Volunteers</h3></div>
-    <div class="col-5"><input type="text" class="form-control" placeholder="Search Filter"></div>
-    <div class="col-1"><a class="btn btn-warning btn-block" href="#members/add/volunteer" role="button">Add New</a></div>
+    <div class="col-5"><input type="text" class="form-control" ng-model="search" placeholder="Search Filter"></div>
+    <div class="col-1"><a class="btn btn-warning btn-block" href="#users/add/volunteer" role="button">Add New</a></div>
   </div>
-
-  <input type="text" ng-model="samrudh" />
-  <div>{{ samrudh }}</div>
-
 
   <p>&nbsp;</p>
   <ul id="volunteer-list" class="list-group">
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" ng-repeat="volunteer in volunteers">
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" ng-repeat="volunteer in volunteers | filter: search">
       <br>
       <h4>{{ $index + 1 }}. {{ volunteer.name }}</h4>
       <p>
