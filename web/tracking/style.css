@@ -5,3 +5,8 @@ label {
 .card {
   margin: 20px 0;
 }
+
+#map {
+  height: 400px;
+  width: 100%;
+}

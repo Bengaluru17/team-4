@@ -14,10 +14,10 @@
           <th>Woman Name</th>
           <th>Number of Visits</th>
         </tr>
-        <tr ng-repeat="">
+        <tr ng-repeat="report in report1">
           <th scope="row">{{ $index + 1 }}</th>
-          <td>{{  }}</td>
-          <td>{{  }}</td>
+          <td>{{ report.name }}</td>
+          <td>{{ report.visits }}</td>
         </tr>
       </table>
     </div>

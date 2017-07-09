@@ -176,11 +176,21 @@ kshamataApp.controller('AddActivityController', function($scope, $location, $fir
 });
 
 kshamataApp.controller('ReportController', function($scope, $location, $firebaseArray) {
-  var activityTrackingRef = firebase.database().ref().child("activityTracking");
-  $scope.activities = $firebaseArray(activityTrackingRef);
+  var womenRef = firebase.database().ref().child("women");
+  $scope.women = $firebaseArray(womenRef);
 
-  $scope.addActivity = function() {
-    $scope.activities.$add($scope.activity);
-    $location.path('/activity-tracking');
-  };
+  $scope.report1 = [];
+
+  $scope.women.$loaded().then(function() {
+    angular.forEach($scope.women, function(woman) {
+      console.log(woman);
+
+      if ($(woman.tracking).length > 0) {
+        $scope.report1.push({
+          name: woman.fullName,
+          visits: $(woman.tracking).length
+        });
+      }
+    });
+  });
 });
