@@ -18,8 +18,8 @@ kshamataApp.config(['$routeProvider', function($routeProvider) {
   	when('/home', {
   		templateUrl: 'pages/home.html'
   	}).
-    when('/members', {
-      templateUrl: 'pages/members.html'
+    when('/users', {
+      templateUrl: 'pages/users.html'
     }).
     when('/women', {
       templateUrl: 'pages/women.html',
@@ -209,9 +209,16 @@ kshamataApp.controller('ReportController', function($scope, $location, $firebase
 
   $scope.report3 = [];
 
-  $scope.report3.push({ name: 'Laskhmi Chinmayi' });
-  $scope.report3.push({ name: 'Maria Benz' });
-  $scope.report3.push({ name: 'Veena S' });
-  $scope.report3.push({ name: 'Seema Devi' });
-  $scope.report3.push({ name: 'Padmavathi Devi' });
+  $scope.report3.push({ type: 1, name: 'Laskhmi Chinmayi' });
+  $scope.report3.push({ type: 1, name: 'Maria Benz' });
+  $scope.report3.push({ type: 1, name: 'Veena S' });
+  $scope.report3.push({ type: 2, name: 'Seema Devi' });
+  $scope.report3.push({ type: 2, name: 'Deepu Shree' });
+  $scope.report3.push({ type: 3, name: 'Manjulatha' });
+  $scope.report3.push({ type: 3, name: 'Meena' });
+  $scope.report3.push({ type: 3, name: 'Sarala' });
+  $scope.report3.push({ type: 4, name: 'Saraswati' });
+  $scope.report3.push({ type: 4, name: 'Kamala' });
+  $scope.report3.push({ type: 4, name: 'Shruthi' });
+
 });
