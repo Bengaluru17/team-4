@@ -80,12 +80,13 @@ kshamataApp.controller('EditWomanController', function($scope, $routeParams, $fi
   });
 });
 
-kshamataApp.controller('AddWomanController', function($scope, $firebaseArray) {
+kshamataApp.controller('AddWomanController', function($scope, $location, $firebaseArray) {
   var womenRef = firebase.database().ref().child("women");
   $scope.women = $firebaseArray(womenRef);
 
   $scope.addWoman = function() {
     $scope.women.$add($scope.woman);
+    $location.path('/women');
   };
 });
 
@@ -94,12 +95,13 @@ kshamataApp.controller('AdminController', function($scope, $firebaseArray) {
   $scope.admins = $firebaseArray(adminsRef);
 });
 
-kshamataApp.controller('AddAdminController', function($scope, $firebaseArray) {
+kshamataApp.controller('AddAdminController', function($scope, $location, $firebaseArray) {
   var adminsRef = firebase.database().ref().child("admins");
   $scope.admins = $firebaseArray(adminsRef);
 
   $scope.addAdmin = function() {
     $scope.admins.$add($scope.admin);
+    $location.path('/members/admin');
   };
 });
 
@@ -108,12 +110,13 @@ kshamataApp.controller('VolunteersController', function($scope, $firebaseArray) 
   $scope.volunteers = $firebaseArray(volunteersRef);
 });
 
-kshamataApp.controller('AddVolunteerController', function($scope, $firebaseArray) {
+kshamataApp.controller('AddVolunteerController', function($scope, $location, $firebaseArray) {
   var volunteersRef = firebase.database().ref().child("volunteers");
   $scope.volunteers = $firebaseArray(volunteersRef);
 
   $scope.addVolunteer = function() {
     $scope.volunteers.$add($scope.volunteer);
+    $location.path('/members/volunteers');
   };
 });
 
@@ -158,11 +161,12 @@ kshamataApp.controller('ActivityTrackingController', function($scope, $firebaseA
   $scope.activities = $firebaseArray(activityTrackingRef);
 });
 
-kshamataApp.controller('AddActivityController', function($scope, $firebaseArray) {
+kshamataApp.controller('AddActivityController', function($scope, $location, $firebaseArray) {
   var activityTrackingRef = firebase.database().ref().child("activityTracking");
   $scope.activities = $firebaseArray(activityTrackingRef);
 
   $scope.addActivity = function() {
     $scope.activities.$add($scope.activity);
+    $location.path('/activity-tracking');
   };
 });
