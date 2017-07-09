@@ -1,0 +1,85 @@
+<div ng-controller="NewTrackingController">
+  <h4>New Tracking Information</h4>
+  <p>&nbsp;</p>
+
+  <div class="form-group">
+    <label>Life Skills</label>
+    <textarea class="form-control" ng-model="tracking.lifeSkills"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Vocational Skills</label>
+    <textarea class="form-control" ng-model="tracking.vocationalSkills"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Skills</label>
+    <input type="text" class="form-control" ng-model="tracking.Skills">
+  </div>
+
+  <div class="form-group">
+    <label>Further Education during engagement with Kshamata</label>
+    <input type="text" class="form-control" ng-model="tracking.furtherEducationDuringEngagementWithKshamata">
+  </div>
+
+  <div class="form-group">
+    <label>Current-Employer</label>
+    <input type="text" class="form-control" ng-model="tracking.currentEmployer">
+  </div>
+
+  <div class="form-group">
+    <label>Salary when she joined</label>
+    <input type="number" class="form-control" ng-model="tracking.salaryWhenSheJoined">
+  </div>
+
+  <div class="form-group">
+    <label>Current Salary</label>
+    <input type="number" class="form-control" ng-model="tracking.currentSalary">
+  </div>
+
+  <div class="form-group">
+    <label>Key Job Responibilities</label>
+    <input type="text" class="form-control" ng-model="tracking.keyjobresponsibilities">
+  </div>
+
+  <div class="form-group">
+    <label>Future Growth</label>
+    <textarea class="form-control" ng-model="tracking.futureGrowth"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Location</label>
+    <input type="text" class="form-control" ng-model="tracking.location">
+  </div>
+
+  <div class="form-group">
+    <label>Accomodation</label>
+    <input type="select" class="form-control" ng-model="tracking.accomodation">
+  </div>
+
+  <div class="form-group">
+    <label>Average Expenses</label>
+    <input type="number" class="form-control" ng-model="tracking.averageExpenses">
+  </div>
+
+  <div class="form-group">
+    <label>Savings</label>
+    <input type="number" class="form-control" ng-model="tracking.savings">
+  </div>
+
+  <div class="form-group">
+    <label>Housemates</label>
+    <input type="text" class="form-control" ng-model="tracking.housemates">
+  </div>
+
+  <div class="form-group">
+    <label>Neighbours</label>
+    <input type="text" class="form-control" ng-model="tracking.neighbours">
+  </div>
+
+  <p>&nbsp;</p>
+
+  <button type="button" class="btn btn-primary btn-block" ng-click="addTracking();">Submit</button>
+
+  <p>&nbsp;</p>
+</div>
