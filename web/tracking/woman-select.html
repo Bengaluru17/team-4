@@ -3,15 +3,12 @@
     <a href="#woman/{{ woman.$id }}">
     <div class="card-block">
       <div class="row">
-        <div class="col-1">
-          <img src="http://via.placeholder.com/80" class="img-responsive" alt="">
-        </div>
-        <div class="col-5">
+        <div class="col-9">
           <h3>{{ woman.fullName }}</h3>
           <h6><strong>Date of Birth:</strong> {{ woman.dob }}</h6>
           <h6><strong>Location:</strong> {{ woman.location }}</h6>
         </div>
-        <div class="col-6">
+        <div class="col-3">
           Recent Track Records:
           <ul style="list-style-type: none;">
             <li>{{ woman.tracking.timestamp | date }}</li>
