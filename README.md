@@ -1,4 +1,4 @@
-# cfg.
+# cfg
 ## Code For Good Hackathon - Team 4
 
 ### Kshamata
